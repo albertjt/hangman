@@ -86,14 +86,13 @@ def play_game(word_list, num_lives=5):
     game = Hangman(word_list)
     while True:
         guess = game.ask_for_input()
-        if not guess:
-            game.num_lives -= 1
-            if game.num_lives == 0:
-                return "You lost!"
+        if game.num_lives == 0:
+            print(f"You lost! The word was {game.word}")
+            return 
         elif game.num_letters == 0:
-            return "Congratulations. You won the game!"
+          print(f"Congratulations. You won the game! The word is {game.word}")
+          return 
       
 
 word_list = ["blueberry", "raspberry", "mango", "watermelon", "kiwi"]
 play_game(word_list)
-
